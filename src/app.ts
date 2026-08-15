@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
+import { errorHandler } from './middlewares/errorHandler.js';
 import { productRoutes } from './routes/productRoutes.js';
 
 export const app = express();
@@ -17,3 +18,9 @@ app.get('/health', (_request, response) => {
 });
 
 app.use('/products', productRoutes);
+
+/*
+ * O middleware de erros precisa ser registrado depois das rotas.
+ * Assim, ele pode receber os erros produzidos durante as requisições.
+ */
+app.use(errorHandler);
