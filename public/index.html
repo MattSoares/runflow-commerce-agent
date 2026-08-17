@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Assistente virtual da Runflow Commerce para produtos e pedidos." />
+    <title>Runflow Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="intro" aria-label="Sobre o assistente">
+        <a class="brand" href="/" aria-label="Runflow Commerce — início">
+          <span class="brand-mark">R</span>
+          <span>runflow<span>commerce</span></span>
+        </a>
+        <div class="intro-copy">
+          <p class="eyebrow">Atendimento inteligente</p>
+          <h1>Comprar ficou mais simples.</h1>
+          <p>Consulte produtos, confira seus pedidos ou faça uma nova compra em uma conversa.</p>
+        </div>
+        <div class="scope">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div><strong>Assistente online</strong><span>Produtos e pedidos</span></div>
+        </div>
+      </aside>
+
+      <section class="chat" aria-label="Conversa com o assistente">
+        <header class="chat-header">
+          <div><p class="eyebrow">Assistente virtual</p><h2>Como posso ajudar?</h2></div>
+          <button id="new-chat" class="ghost-button" type="button">Nova conversa</button>
+        </header>
+
+        <div id="messages" class="messages" role="log" aria-live="polite" aria-label="Mensagens da conversa">
+          <article class="message assistant-message">
+            <div class="avatar" aria-hidden="true">R</div>
+            <div class="bubble">
+              <p>Olá! Sou o assistente da Runflow Commerce.</p>
+              <p>Posso mostrar nosso catálogo, explicar detalhes de um produto, criar um pedido ou consultar uma compra.</p>
+            </div>
+          </article>
+          <div id="suggestions" class="suggestions" aria-label="Sugestões de perguntas">
+            <button type="button" data-message="Quais produtos vocês têm disponíveis?"><span>Explorar</span>Ver produtos disponíveis</button>
+            <button type="button" data-message="Qual o status do pedido 1042?"><span>Acompanhar</span>Consultar pedido 1042</button>
+            <button type="button" data-message="Quero comprar 2 unidades do produto 1 e 1 unidade do produto 4."><span>Comprar</span>Criar um novo pedido</button>
+          </div>
+        </div>
+
+        <form id="chat-form" class="composer">
+          <label class="sr-only" for="message-input">Digite sua mensagem</label>
+          <textarea id="message-input" rows="1" maxlength="2000" placeholder="Pergunte sobre um produto ou pedido..." required></textarea>
+          <button id="send-button" type="submit" aria-label="Enviar mensagem"><span>Enviar</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="disclaimer">O assistente pode cometer erros. Confira os dados do pedido antes de continuar.</p>
+      </section>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

@@ -11,6 +11,7 @@ export const app = express();
 app.disable('x-powered-by');
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 app.get('/health', (_request, response) => {
   response.status(200).json({
