@@ -10,7 +10,9 @@ export class GeminiClient implements LanguageModel {
   ) {}
 
   async generate(contents: GeminiContent[]): Promise<GeminiContent> {
-    if (!this.apiKey) {
+    const apiKey = this.apiKey;
+
+    if (!apiKey) {
       throw new AppError(503, 'LLM_NOT_CONFIGURED', 'Configure GEMINI_API_KEY para conversar com o agente.');
     }
 
@@ -18,10 +20,13 @@ export class GeminiClient implements LanguageModel {
 
     try {
       response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent?key=${this.apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent`,
         {
           method: 'POST',
-          headers: { 'content-type': 'application/json' },
+          headers: {
+            'content-type': 'application/json',
+            'x-goog-api-key': apiKey,
+          },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: systemPrompt }] },
             contents,
