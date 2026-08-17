@@ -112,19 +112,19 @@ COMMERCE_API_URL=http://localhost:3000
 
 O `.env` está ignorado pelo Git. Não publique sua chave.
 
-### 4. Inicie em desenvolvimento
-
-```bash
-npm run dev
-```
-
-Abra [http://localhost:3000](http://localhost:3000).
-
-### Build de produção local
+### 4. Compile e inicie
 
 ```bash
 npm run build
 npm start
+```
+
+Abra [http://localhost:3000](http://localhost:3000).
+
+Para desenvolvimento com recarregamento automático, use:
+
+```bash
+npm run dev
 ```
 
 ## Como usar a API de chat
@@ -191,6 +191,13 @@ Resposta HTTP `201`:
         "quantity": 2,
         "unitPrice": 249.9,
         "subtotal": 499.8
+      },
+      {
+        "productId": 4,
+        "productName": "Webcam Vision Full HD",
+        "quantity": 1,
+        "unitPrice": 299.9,
+        "subtotal": 299.9
       }
     ],
     "total": 799.7,
