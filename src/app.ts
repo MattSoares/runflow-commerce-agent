@@ -2,6 +2,7 @@ import cors from 'cors';
 import express from 'express';
 
 import { errorHandler } from './middlewares/errorHandler.js';
+import { chatRoutes } from './routes/chatRoutes.js';
 import { orderRoutes } from './routes/orderRoutes.js';
 import { productRoutes } from './routes/productRoutes.js';
 
@@ -20,6 +21,7 @@ app.get('/health', (_request, response) => {
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/chat', chatRoutes);
 
 
 /*
