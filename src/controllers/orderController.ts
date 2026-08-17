@@ -1,6 +1,10 @@
 import type { Request, Response } from 'express';
 
-import { getOrderById } from '../services/orderService.js';
+import { createOrderSchema } from '../schemas/orderSchemas.js';
+import {
+  createOrder as createOrderService,
+  getOrderById,
+} from '../services/orderService.js';
 import type { Order } from '../types/order.js';
 
 function formatOrder(order: Order) {
@@ -29,4 +33,11 @@ export function getOrder(
   response.status(200).json({
     data: formatOrder(order),
   });
+}
+
+export function createOrder(request: Request, response: Response): void {
+  const input = createOrderSchema.parse(request.body);
+  const order = createOrderService(input);
+
+  response.status(201).json({ data: formatOrder(order) });
 }
