@@ -9,7 +9,7 @@ A aplicação permite consultar produtos e pedidos e criar novos pedidos em ling
 Depois de iniciar o projeto, acesse:
 
 ```text
-http://localhost:3000
+http://localhost:3000/
 ```
 
 A interface oferece sugestões de conversa, histórico visual, indicador de resposta, tratamento de erros e criação de uma nova sessão.
@@ -119,7 +119,7 @@ npm run build
 npm start
 ```
 
-Abra [http://localhost:3000](http://localhost:3000).
+Abra [http://localhost:3000/](http://localhost:3000/).
 
 Para desenvolvimento com recarregamento automático, use:
 
